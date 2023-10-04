@@ -16,14 +16,14 @@ class CreationNhanVien extends Migration
         Schema::create('nhanvien', function (Blueprint $table) {
             $table->string('HoNV');
             $table->string('TenLot');
-            $table->string('Ten');
+            $table->string('TenNV');
             $table->string('MaNV')->primary();
             $table->date('NgSinh');
             $table->string('DChi');
             $table->enum('Phai', ['Nam', "Nữ"]);
             $table->float('Luong');
             $table->string('Ma_NQL')->nullable();
-            $table->integer('Phong')->nullable();
+            $table->integer('PHG')->nullable();
             $table->charset = 'utf8mb4';
             $table->collation = 'utf8mb4_unicode_ci';
         });

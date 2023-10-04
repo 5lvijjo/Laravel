@@ -16,7 +16,7 @@ class UpdateForeignKey extends Migration
         Schema::table('phongban', function (Blueprint $table) {
             $table->foreign('TrPHG')->references('MaNV')->on('nhanvien');
         });
-        Schema::table('ddiem_phg', function (Blueprint $table) {
+        Schema::table('diadiem_phg', function (Blueprint $table) {
             $table->foreign('MaPHG')->references('MaPHG')->on('phongban');
         });
         Schema::table('dean', function (Blueprint $table) {
@@ -32,7 +32,7 @@ class UpdateForeignKey extends Migration
         });
         Schema::table('nhanvien', function (Blueprint $table) {
             $table->foreign('Ma_NQL')->references('MaNV')->on('nhanvien');
-            $table->foreign('Phong')->references('MaPHG')->on('phongban');
+            $table->foreign('PHG')->references('MaPHG')->on('phongban');
         });
         Schema::table('thannhan', function (Blueprint $table) {
             $table->foreign('Ma_NVien')->references('MaNV')->on('nhanvien');
