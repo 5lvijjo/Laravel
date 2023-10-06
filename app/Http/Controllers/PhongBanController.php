@@ -8,9 +8,15 @@ use App\Models\PhongBanModel;
 class PhongBanController extends Controller
 {
     public function index(){
-        echo "This is PHONGBAN page ";
+        echo "This is PHONGBAN page <br />";
         $phongbans = PhongBanModel::get();
-        dd($phongbans[2]->NhanVien);
+        foreach($phongbans as $phongban){
+            echo
+            $phongban->TenPHG. "``".
+            $phongban->MaPHG. "``".
+            $phongban->TrPHG. "``".
+            $phongban->Ng_NhanChuc. "<br />";
+        }
 
     }
 

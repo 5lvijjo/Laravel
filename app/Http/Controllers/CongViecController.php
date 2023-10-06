@@ -8,8 +8,10 @@ use Illuminate\Http\Request;
 class CongViecController extends Controller
 {
     public function index(){
-        echo "This is congviec page";
+        echo "This is congviec page <br />";
         $congviecs = CongViecModel::get();
-        dd($congviecs);
+        foreach($congviecs as $congviec){
+            echo $congviec->MaDA. "``". $congviec->STT. "``". $congviec->Ten_Cong_Viec. "<br />";
+        }
     }
 }

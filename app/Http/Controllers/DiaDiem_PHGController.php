@@ -11,6 +11,8 @@ class DiaDiem_PHGController extends Controller
     public function index(){
         echo "This is DiaDiem_PHG page <br />";
         $diadiem_phgs =DiaDiem_PHGModel::get();
-        dd($diadiem_phgs);
+        foreach($diadiem_phgs as $diadiem_phg){
+            echo $diadiem_phg->MaPHG. "``". $diadiem_phg->DiaDiem. "<br />";
+        }
     }
 }
