@@ -7,6 +7,7 @@ use App\Http\Controllers\ThanNhanController;
 use App\Http\Controllers\DeAnController;
 use App\Http\Controllers\CongViecController;
 use App\Http\Controllers\DDien_PHGController;
+use App\Http\Controllers\DiaDiem_PHGController;
 use App\Http\Controllers\PhanCongController;
 /*
 |--------------------------------------------------------------------------
@@ -27,5 +28,5 @@ Route::get('/nhanvien', [NhanVienController::class, 'index']);
 Route::get('/thannhan', [ThanNhanController::class, 'index']);
 Route::get('/dean', [DeAnController::class, 'index']);
 Route::get('/congviec', [CongViecController::class, 'index']);
-Route::get('/ddiem_phg', [DDien_PHGController::class, 'index']);
+Route::get('/diadiem_phg', [DiaDiem_PHGController::class, 'index']);
 Route::get('/phancong', [PhanCongController::class, 'index']);
