@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\DDiem_PHGModel;
 use App\Models\DiaDiem_PHGModel;
 use Illuminate\Http\Request;
 

@@ -23,5 +23,8 @@ class NhanVienController extends Controller
             $nhanvien->Ma_NQL. "``".
             $nhanvien->PHG. "<br />";
         }
+        #Tìm những nhân viên làm việc phòng số 4
+        echo "Tìm những nhân viên làm việc phòng số 4";
+
     }
 }

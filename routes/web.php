@@ -9,6 +9,7 @@ use App\Http\Controllers\CongViecController;
 use App\Http\Controllers\DDien_PHGController;
 use App\Http\Controllers\DiaDiem_PHGController;
 use App\Http\Controllers\PhanCongController;
+use App\Http\Controllers\PracticeSelectLaravelController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -30,3 +31,4 @@ Route::get('/dean', [DeAnController::class, 'index']);
 Route::get('/congviec', [CongViecController::class, 'index']);
 Route::get('/diadiem_phg', [DiaDiem_PHGController::class, 'index']);
 Route::get('/phancong', [PhanCongController::class, 'index']);
+Route::get('/select', [PracticeSelectLaravelController::class, 'index']);

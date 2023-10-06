@@ -17,13 +17,13 @@ class PhongBanModel extends Model
     public function TruongPhong(){
         return $this->belongsTo(NhanVienModel::class, 'TrPHG', 'MaNV');
     }
-    public function NhanVien(){
+    public function NhanViens(){
         return $this->hasMany(NhanVienModel::class, 'PHG', 'MaPHG');
     }
-    public function DiaDiem(){
+    public function DiaDiems(){
         return $this-> hasMany(DiaDiem_PHGModel::class, 'MaPHG', 'MaPHG');
     }
-    public function DeAn(){
+    public function DeAns(){
         return $this-> hasMany(DeAnModel::class, 'Phong', 'MaPHG');
     }
 }
