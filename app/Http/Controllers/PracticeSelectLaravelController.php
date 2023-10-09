@@ -10,8 +10,6 @@ use App\Models\ThanNhanModel;
 use App\Models\DeAnModel;
 use App\Models\CongViecModel;
 use App\Models\PhanCongModel;
-
-
 use Illuminate\Support\Facades\DB;
 
 class PracticeSelectLaravelController extends Controller
