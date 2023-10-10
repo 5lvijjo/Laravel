@@ -17,14 +17,12 @@ class APIPracticeSelectLaravelController extends Controller
 {
      #1.Tìm những nhân viên làm việc ở phòng số 4
      public function bT1(){
-        $bT1 = NhanVienModel::where('PHG',4)->get();
-        return json_encode($bT1);
+        return json_encode(NhanVienModel::where('PHG',4)->get());
      }
 
      #2.Tìm những nhân viên có mức lương trên 30000
      public function bT2(){
-        $bT2 = NhanVienModel::where('Luong','>',30000)->get();
-        return json_encode($bT2);
+        return json_encode(NhanVienModel::where('Luong','>',30000)->get());
      }
 
      /*3.Tìm các nhân viên có mức lương trên 25,000 ở phòng 4
@@ -33,12 +31,12 @@ class APIPracticeSelectLaravelController extends Controller
         $bT3 = NhanVienModel::where([
             ['Luong', '>', 25000],
             ['PHG', 4],
-        ])
-        ->orWhere(function($query){
-            $query->where('Luong', '>', 30000)
-            ->where('PHG', 5);
-            })
-        ->get();
+            ])
+            ->orWhere(function($query){
+                $query->where('Luong', '>', 30000)
+                ->where('PHG', 5);
+                })
+            ->get();
         return json_encode($bT3);
      }
 
@@ -52,7 +50,7 @@ class APIPracticeSelectLaravelController extends Controller
      hoặc ở TP HCM hoặc làm việc tại phòng số 4*/
      public function bT8(){
         $bT8 = NhanVienModel::where('NgSinh', '<', '1965-04-30')
-        ->orWhere('DChi', 'like', '%Tp HCM')->orWhere('PHG', 4)->get();
+            ->orWhere('DChi', 'like', '%Tp HCM')->orWhere('PHG', 4)->get();
         return json_encode($bT8);
      }
 
@@ -77,7 +75,7 @@ class APIPracticeSelectLaravelController extends Controller
      #13. Tìm tên và địa chỉ của tất cả các nhân viên của phòng "Nghiên cứu".
      public function bT13(){
         $bT13 = NhanVienModel::join('phongban','nhanvien.PHG', '=', 'phongban.MaPHG')
-        ->where('PHG', '=', 5)->get();
+            ->where('PHG', '=', 5)->get();
         return json_encode($bT13);
      }
 
@@ -86,8 +84,8 @@ class APIPracticeSelectLaravelController extends Controller
      cũng như địa chỉ (DCHI) và ngày sinh (NGSINH) của người ấy.*/
      public function bT14(){
         $bT14  = DeAnModel::join('phongban', 'dean.phong', '=', 'phongban.MaPHG')
-        ->join('nhanvien', 'phongban.TrPHG', '=', 'nhanvien.MaNV')
-        ->where('DDiem_DA', 'Hà Nội')->get();
+            ->join('nhanvien', 'phongban.TrPHG', '=', 'nhanvien.MaNV')
+            ->where('DDiem_DA', 'Hà Nội')->get();
         return json_encode($bT14);
      }
 
@@ -101,7 +99,7 @@ class APIPracticeSelectLaravelController extends Controller
      #17.Lương trung bình của tất cả các nữ nhân viên
      public function bT17(){
         $bT17  = NhanVienModel::groupBy('Phai')
-        ->select(DB::raw('avg(Luong) as LuongNuTB'), 'Phai')->where('Phai', 'Nữ')->get();
+            ->select(DB::raw('avg(Luong) as LuongNuTB'), 'Phai')->where('Phai', 'Nữ')->get();
         return json_encode($bT17);
      }
 
@@ -112,11 +110,12 @@ class APIPracticeSelectLaravelController extends Controller
             'ql.HoNV',
             'ql.TenLot',
             'ql.TenNV',
-            'ql.MaNV')
-        ->from('nhanvien as ql')
-        ->leftJoin('nhanvien as nv', 'ql.MaNV', '=', 'nv.Ma_NQL')
-        ->groupBy('ql.HoNV', 'ql.TenLot', 'ql.TenNV', 'ql.MaNV')
-        ->get();
+            'ql.MaNV'
+            )
+            ->from('nhanvien as ql')
+            ->leftJoin('nhanvien as nv', 'ql.MaNV', '=', 'nv.Ma_NQL')
+            ->groupBy('ql.HoNV', 'ql.TenLot', 'ql.TenNV', 'ql.MaNV')
+            ->get();
         return json_encode($bT18);
      }
 }

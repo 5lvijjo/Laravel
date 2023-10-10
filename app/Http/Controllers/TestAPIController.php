@@ -22,37 +22,29 @@ class TestAPIController extends Controller
         return "Hello World!!";
     }
     public function nhanvien1(){
-        $nhanvien1s = NhanVienModel::get();
-        return json_encode($nhanvien1s);
+        return json_encode(NhanVienModel::get());
     }
     public function phongban(){
-        $phongbans = PhongBanModel::get();
-        return json_encode($phongbans);
+        return json_encode(PhongBanModel::get());
     }
     public function diadiem_phg(){
-        $diadiem_phgs = DiaDiem_PHGModel::get();
-        return json_encode($diadiem_phgs);
+        return json_encode(DiaDiem_PHGModel::get());
     }
-        public function dean(){
-        $deans = DeAnModel::get();
-        return json_encode($deans);
+    public function dean(){
+        return json_encode(DeAnModel::get());
     }
-        public function thannhan(){
-        $thannhans = ThanNhanModel::get();
-        return json_encode($thannhans);
+    public function thannhan(){
+        return json_encode(ThanNhanModel::get());
     }
-        public function phancong(){
-        $phancongs = PhanCongModel::get();
-        return json_encode($phancongs);
+    public function phancong(){
+        return json_encode(PhanCongModel::get());
     }
     public function congviec(){
-        $congviecs = CongViecModel::get();
-        return json_encode($congviecs);
+        return json_encode(CongViecModel::get());
     }
 
     public function nhanvien($MaNV){
-        $nhanviens = NhanVienModel::where('MaNV', $MaNV)->first();
-        return json_encode($nhanviens);
+        return json_encode(NhanVienModel::where('MaNV', $MaNV)->first());
     }
 
 }

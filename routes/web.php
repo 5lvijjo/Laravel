@@ -6,11 +6,10 @@ use App\Http\Controllers\NhanVienController;
 use App\Http\Controllers\ThanNhanController;
 use App\Http\Controllers\DeAnController;
 use App\Http\Controllers\CongViecController;
-use App\Http\Controllers\DDien_PHGController;
 use App\Http\Controllers\DiaDiem_PHGController;
 use App\Http\Controllers\PhanCongController;
 use App\Http\Controllers\PracticeSelectLaravelController;
-
+use App\Http\Controllers\PracticeCollectionController;
 
 
 

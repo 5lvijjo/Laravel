@@ -4,7 +4,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TestAPIController;
 use App\Http\Controllers\APIPracticeSelectLaravelController;
-
+use App\Http\Controllers\PracticeCollectionController;
+use App\Http\Controllers\PracticeResourceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,6 +45,24 @@ Route::get('/bt14', [APIPracticeSelectLaravelController::class, 'bT14']);
 Route::get('/bt16', [APIPracticeSelectLaravelController::class, 'bT16']);
 Route::get('/bt17', [APIPracticeSelectLaravelController::class, 'bT17']);
 Route::get('/bt18', [APIPracticeSelectLaravelController::class, 'bT18']);
+
+#Practice Collection
+Route::get('/index_collection', [PracticeCollectionController::class, 'index']);
+Route::get('/count_collection', [PracticeCollectionController::class, 'count']);
+Route::get('/avg_collection', [PracticeCollectionController::class, 'avg']);
+Route::get('/chunk_collection', [PracticeCollectionController::class, 'chunk']);
+Route::get('/chunkWhile_collection', [PracticeCollectionController::class, 'chunkWhile']);
+Route::get('/luong_collection', [PracticeCollectionController::class, 'luong']);
+Route::get('/tenNV_collection', [PracticeCollectionController::class, 'tenNV']);
+
+#Practice Resource
+Route::get('/nhanvien_resource', [PracticeResourceController::class, 'nhanvien']);
+Route::get('/phongban_resource', [PracticeResourceController::class, 'phongban']);
+Route::get('/diadiem_phg_resource', [PracticeResourceController::class, 'diadiem_phg']);
+Route::get('/thannhan_resource', [PracticeResourceController::class, 'thannhan']);
+Route::get('/dean_resource', [PracticeResourceController::class, 'dean']);
+Route::get('/congviec_resource', [PracticeResourceController::class, 'congviec']);
+Route::get('/phancong_resource', [PracticeResourceController::class, 'phancong']);
 
 
 
