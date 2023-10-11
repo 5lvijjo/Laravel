@@ -9,6 +9,10 @@ class PhanCongModel extends Model
 {
     use HasFactory;
     protected $table = 'phancong';
+    public $timestamps = false;
+    public $incrementing = false;
+    protected $primaryKey = ['Ma_NVien', 'MaDA', 'STT'];
+
     public function CongViec(){
         return $this-> belongsTo(CongViecModel::class, 'MaDA', 'MaDA');
     }

@@ -1,11 +1,18 @@
 <?php
 
+use App\Http\Controllers\API\CongViecController;
+use App\Http\Controllers\API\DeAnController;
+use App\Http\Controllers\API\DiaDiem_PHGController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TestAPIController;
 use App\Http\Controllers\APIPracticeSelectLaravelController;
 use App\Http\Controllers\PracticeCollectionController;
 use App\Http\Controllers\PracticeResourceController;
+use App\Http\Controllers\API\NhanVienController;
+use App\Http\Controllers\API\PhanCongController;
+use App\Http\Controllers\API\PhongBanController;
+use App\Http\Controllers\API\ThanNhanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -56,13 +63,32 @@ Route::get('/luong_collection', [PracticeCollectionController::class, 'luong']);
 Route::get('/tenNV_collection', [PracticeCollectionController::class, 'tenNV']);
 
 #Practice Resource
-Route::get('/nhanvien_resource', [PracticeResourceController::class, 'nhanvien']);
-Route::get('/phongban_resource', [PracticeResourceController::class, 'phongban']);
-Route::get('/diadiem_phg_resource', [PracticeResourceController::class, 'diadiem_phg']);
-Route::get('/thannhan_resource', [PracticeResourceController::class, 'thannhan']);
-Route::get('/dean_resource', [PracticeResourceController::class, 'dean']);
-Route::get('/congviec_resource', [PracticeResourceController::class, 'congviec']);
-Route::get('/phancong_resource', [PracticeResourceController::class, 'phancong']);
+Route::get('/nhanvien_resource', [NhanVienController::class, 'getAll']);
+Route::post('/nhanvien_resource/{MaNV}', [NhanVienController::class, 'update']);
+
+
+Route::get('/phongban_resource', [PhongBanController::class, 'getAll']);
+Route::post('/phongban_resource/{MaPHG}', [PhongBanController::class, 'update']);
+
+
+Route::get('/diadiem_phg_resource', [DiaDiem_PHGController::class, 'getAll']);
+Route::post('/diadiem_phg_resource/{MaPHG}/{DiaDiem}', [DiaDiem_PHGController::class, 'update']);
+
+
+Route::get('/thannhan_resource', [ThanNhanController::class, 'getAll']);
+Route::post('/thannhan_resource/{Ma_Nvien}/{TenTN}', [ThanNhanController::class, 'update']);
+
+
+Route::get('/dean_resource', [DeAnController::class, 'getAll']);
+Route::post('/dean_resource/{MaDa}', [DeAnController::class, 'update']);
+
+
+Route::get('/congviec_resource', [CongViecController::class, 'getAll']);
+Route::post('/congviec_resource/{MaDA}/{STT}', [CongViecController::class, 'update']);
+
+
+Route::get('/phancong_resource', [PhanCongController::class, 'getAll']);
+Route::post('/phancong_resource/{Ma_NVien}/{MaDA}/{STT}', [PhanCongController::class, 'update']);
 
 
 

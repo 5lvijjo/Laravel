@@ -14,6 +14,9 @@ class PhongBanModel extends Model
      * @var string
      */
     protected $table = 'phongban';
+    public $timestamps = false;
+    protected $primaryKey = 'MaPHG';
+
     public function TruongPhong(){
         return $this->belongsTo(NhanVienModel::class, 'TrPHG', 'MaNV');
     }

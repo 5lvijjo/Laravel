@@ -9,6 +9,9 @@ class DeAnModel extends Model
 {
     use HasFactory;
     protected $table = 'dean';
+    public $timestamps = false;
+    protected $primaryKey = 'MaDA';
+
     public function PhongBan(){
         return $this->belongsTo(PhongBanModel::class, 'Phong', 'MaPHG');
     }

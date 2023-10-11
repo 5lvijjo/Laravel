@@ -14,6 +14,9 @@ class NhanVienModel extends Model
      * @var string
      */
     protected $table = 'nhanvien';
+    public $timestamps = false;
+    protected $primaryKey = 'MaNV';
+
     public function TruongPhong(){
         return $this->hasOne(PhongBanModel::class, 'TrPHG', 'MaNV');
     }
